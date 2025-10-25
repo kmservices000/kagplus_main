@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- SEO Meta Tags -->
+    <title>KagPlus+ | Tools That Make Work Easier - Document Formatting, Translation & Analysis</title>
+    <meta name="description" content="KagPlus+ offers professional tools for document formatting, translation QA, and data analysis. FormataDock preserves Word tracked changes, while our suite helps translators, editors, and analysts work faster." />
+    <meta name="keywords" content="document formatting tool, Word tracked changes, translation QA software, multilingual document editing, regression analysis, data analysis tools, FormataDock, translation tools, document workflow" />
+    <meta name="author" content="KagPlus+" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://kagplus.com" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://kagplus.com" />
+    <meta property="og:title" content="KagPlus+ | Tools That Make Work Easier" />
+    <meta property="og:description" content="Professional tools for document formatting, translation QA, and data analysis. FormataDock preserves Word tracked changes for multilingual teams." />
+    <meta property="og:image" content="https://kagplus.com/KagPlus logo_revised.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://kagplus.com" />
+    <meta property="twitter:title" content="KagPlus+ | Tools That Make Work Easier" />
+    <meta property="twitter:description" content="Professional tools for document formatting, translation QA, and data analysis." />
+    <meta property="twitter:image" content="https://kagplus.com/KagPlus logo_revised.png" />
+
+    <style>
+      :root {
+        --orange: #ff7a00;
+        --text: #0a0a0a;
+        --muted: #6b7280;
+        --border: #e5e7eb;
+        --card: #ffffff;
+      }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; min-height: 100vh; background: linear-gradient(180deg, #ffffff 0%, #fff5eb 45%, #ff7a00 100%); color: var(--text); font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
+      a { color: var(--text); text-decoration: none; }
+      .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+      /* Nav */
+      .nav { position: sticky; top: 0; z-index: 20; background: rgba(255,255,255,0.9); backdrop-filter: saturate(180%) blur(8px); border-bottom: 0; }
+      .nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; }
+      .brand { display: flex; align-items: center; gap: 0; font-weight: 700; letter-spacing: 0.3px; color: var(--text); }
+      .brand-s { position: relative; display: inline; margin-left: -1px; }
+      .brand-s::after {
+        content: '+';
+        position: absolute;
+        left: 100%;
+        top: 50%;
+        transform: translate(0, -55%);
+        color: var(--orange);
+        font-weight: 900;
+        font-size: 12px;
+        line-height: 1;
+        pointer-events: none;
+        margin-left: 2px;
+      }
+      .brand-icon { width: 28px; height: 28px; }
+      .links { display: flex; align-items: center; gap: 18px; }
+      .menu { position: relative; }
+      .menu > button { background: none; color: var(--text); border: none; font: inherit; cursor: pointer; padding: 6px 4px; display: inline-flex; align-items: center; gap: 6px; }
+      .dropdown { position: absolute; top: 36px; left: 0; background: #ffffff; border: 1px solid var(--border); border-radius: 10px; min-width: 220px; padding: 8px; display: none; box-shadow: 0 12px 30px rgba(0,0,0,0.08); }
+      .menu:hover .dropdown { display: block; }
+      .dropdown a { display: flex; justify-content: space-between; align-items: center; padding: 10px 12px; border-radius: 8px; color: var(--text); }
+      .dropdown a:hover { background: #fff6ef; color: var(--text); }
+      .badge { background: var(--orange); color: #111; border-radius: 999px; padding: 2px 8px; font-size: 12px; font-weight: 700; }
+      /* Hero */
+      .hero { position: relative; overflow: hidden; padding: 70px 0 90px; }
+      .two-col { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 30px; align-items: center; }
+      .title { font-size: clamp(34px, 4.4vw, 60px); line-height: 1.05; margin: 0; }
+      .sub { color: var(--text); opacity: .9; margin: 18px 0 22px; font-size: clamp(14px, 1.3vw, 18px); max-width: 640px; }
+      .cta { display: inline-block; background: var(--orange); color: #111; font-weight: 700; padding: 12px 18px; border-radius: 10px; }
+      .cta:hover { filter: brightness(0.98); }
+      /* Moving plus field */
+      .plus-field { position: absolute; inset: 0; pointer-events: none; opacity: 0.2; }
+      .plus { position: absolute; color: var(--orange); font-weight: 800; font-size: 28px; animation: drift 12s linear infinite; }
+      .plus:nth-child(2) { animation-duration: 14s; font-size: 22px; opacity: .8 }
+      .plus:nth-child(3) { animation-duration: 16s; font-size: 18px; opacity: .7 }
+      .plus:nth-child(4) { animation-duration: 18s; font-size: 26px; opacity: .9 }
+      .plus:nth-child(5) { animation-duration: 20s; font-size: 20px; opacity: .8 }
+      @keyframes drift {
+        0%   { transform: translate3d(-10%, 0, 0) rotate(0deg); }
+        50%  { transform: translate3d(60%, -20%, 0) rotate(45deg); }
+        100% { transform: translate3d(120%, 0, 0) rotate(90deg); }
+      }
+      /* Sections */
+      .section { padding: 40px 0; border-top: 0; }
+      .apps { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+      .app-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); }
+      .app-head { display: flex; align-items: center; gap: 10px; }
+      .app-logo { width: 28px; height: 28px; }
+      .app-title { font-weight: 800; font-size: 18px; }
+      .app-desc { color: var(--muted); font-size: 14px; }
+      .app-actions { display: flex; gap: 8px; }
+      .ghost { background: transparent; border: 1px solid var(--border); color: var(--text); padding: 10px 14px; border-radius: 10px; }
+      footer { padding: 30px 0; color: #ffffff; text-align: center; font-size: 14px; }
+      /* Responsive */
+      @media (max-width: 800px) { .two-col { grid-template-columns: 1fr; } .dropdown { left: auto; right: 0; } }
+    </style>
+  </head>
+  <body>
+    <nav class="nav">
+      <div class="container nav-inner">
+        <div class="brand">
+          <img src="KagPlus logo_revised.png" alt="KagPlus Logo" class="brand-icon" style="width: auto; height: 100px;">
+        </div>
+        <div class="links">
+          <div class="menu" aria-haspopup="true">
+            <button>Apps
+              <svg width="12" height="12" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" style="opacity:.8"><path d="M5.25 7.5L10 12.25 14.75 7.5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+            </button>
+            <div class="dropdown" role="menu" aria-label="Apps">
+              <a href="https://formatadock.kagplus.com">FormataDock <span class="badge">Live</span></a>
+              <a href="/app">RegressionPal <span class="badge">Soon</span></a>
+              <a href="/fluence">Fluence <span class="badge">Soon</span></a>
+              <a href="/syntaxy">Syntaxy <span class="badge">Soon</span></a>
+              <a href="/lexy">Lexy <span class="badge">Soon</span></a>
+            </div>
+          </div>
+          <a href="https://www.linkedin.com/company/kagplus" target="_blank" rel="noopener noreferrer">Community</a>
+        </div>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <div class="plus-field" aria-hidden="true">
+        <div class="plus" style="top:10%; left:5%">+</div>
+        <div class="plus" style="top:35%; left:15%">+</div>
+        <div class="plus" style="top:60%; left:10%">+</div>
+        <div class="plus" style="top:20%; left:30%">+</div>
+        <div class="plus" style="top:70%; left:25%">+</div>
+      </div>
+      <div class="container two-col">
+        <div>
+          <h1 class="title">We build tools that make work easier</h1>
+          <p class="sub">A focused suite of data and dev tools. Clean, fast, and practical. Start with FormataDock for formatting and tracked changes; more apps are on the way.</p>
+          <div class="app-actions">
+            <a class="cta" href="https://formatadock.kagplus.com">Launch FormataDock</a>
+            <a class="ghost" href="#apps">Explore Apps</a>
+          </div>
+        </div>
+        <div>
+          <svg viewBox="0 0 420 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Techy animated plus scene">
+            <defs>
+              <linearGradient id="grad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#222"/>
+                <stop offset="100%" stop-color="#111"/>
+              </linearGradient>
+            </defs>
+            <rect x="0" y="0" width="420" height="300" fill="url(#grad)" rx="16"/>
+            <g stroke="#333" stroke-width="1">
+              <path d="M20 260 H400" />
+              <path d="M20 220 H400" />
+              <path d="M20 180 H400" />
+              <path d="M20 140 H400" />
+              <path d="M20 100 H400" />
+            </g>
+            <g fill="var(--orange)" opacity="0.9">
+              <circle cx="80" cy="200" r="6">
+                <animate attributeName="cy" values="200;160;200" dur="6s" repeatCount="indefinite" />
+              </circle>
+              <circle cx="160" cy="160" r="6">
+                <animate attributeName="cy" values="160;140;160" dur="7s" repeatCount="indefinite" />
+              </circle>
+              <circle cx="240" cy="180" r="6">
+                <animate attributeName="cy" values="180;150;180" dur="5.5s" repeatCount="indefinite" />
+              </circle>
+              <circle cx="320" cy="140" r="6">
+                <animate attributeName="cy" values="140;120;140" dur="6.5s" repeatCount="indefinite" />
+              </circle>
+            </g>
+            <g stroke="var(--orange)" stroke-width="5" stroke-linecap="round">
+              <path d="M370 60 v40 M350 80 h40">
+                <animateTransform attributeName="transform" type="rotate" from="0 360 80" to="360 360 80" dur="10s" repeatCount="indefinite" />
+              </path>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="apps">
+      <div class="container">
+        <h2 style="margin:0 0 12px">Apps</h2>
+        <p class="sub" style="margin:0 0 18px">Practical tools that stay out of your way.</p>
+          <div class="apps">
+          <div class="app-card">
+            <div class="app-head">
+              <!-- RegressionPal: orange rounded square with glasses and smile -->
+              <svg class="app-logo" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect x="6" y="6" width="52" height="52" rx="12" fill="#ff7a00"/>
+                <!-- glasses -->
+                <circle cx="28" cy="28" r="7" fill="none" stroke="#111" stroke-width="2.6"/>
+                <circle cx="42" cy="28" r="7" fill="none" stroke="#111" stroke-width="2.6"/>
+                <line x1="35" y1="28" x2="35" y2="28" stroke="#111" stroke-width="2.6"/>
+                <!-- smile -->
+                <path d="M24 40 q8 6 16 0" stroke="#eee" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+              </svg>
+              <div class="app-title">RegressionPal</div>
+            </div>
+            <div class="app-desc">Statistical regression analysis software with automated report generation. Perfect for researchers, data analysts, and students needing publication-ready results.</div>
+            <div class="app-actions"><a class="ghost" href="/app">Coming Soon</a></div>
+          </div>
+          <div class="app-card">
+            <div class="app-head">
+              <!-- Fluence: orange square face + small white chat bubble overlay -->
+              <svg class="app-logo" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect x="6" y="6" width="52" height="52" rx="12" fill="#ff7a00"/>
+                <!-- eyes -->
+                <circle cx="28" cy="26" r="3" fill="#111"/>
+                <circle cx="40" cy="26" r="3" fill="#111"/>
+                <!-- smile -->
+                <path d="M24 38 q8 6 16 0" stroke="#eee" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+                <!-- chat bubble -->
+                <rect x="38" y="10" width="16" height="12" rx="5" fill="#ffffff" stroke="#ffd6b0"/>
+                <path d="M44 22 l3 4 l-6 -2 z" fill="#ffffff" stroke="#ffd6b0"/>
+              </svg>
+              <div class="app-title">Fluence</div>
+            </div>
+            <div class="app-desc">AI language learning platform for French, Spanish, and Tagalog. Practice with conversational AI partners featuring guided prompts and instant feedback for faster fluency.</div>
+            <div class="app-actions"><a class="ghost" href="/fluence">Coming Soon</a></div>
+          </div>
+          <div class="app-card">
+            <div class="app-head">
+              <!-- Syntaxy: orange square face + green check overlay -->
+              <svg class="app-logo" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect x="6" y="6" width="52" height="52" rx="12" fill="#ff7a00"/>
+                <circle cx="26" cy="26" r="3" fill="#111"/>
+                <circle cx="38" cy="26" r="3" fill="#111"/>
+                <path d="M22 38 q10 8 20 0" stroke="#eee" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+                <path d="M16 44 l6 6 l12 -12" stroke="#22c55e" stroke-width="4" fill="none" stroke-linecap="round"/>
+              </svg>
+              <div class="app-title">Syntaxy</div>
+            </div>
+            <div class="app-desc">AI grammar checker and writing assistant with detailed explanations. Perfect for ESL students, academic writing, and educators exploring student writing patterns.</div>
+            <div class="app-actions"><a class="ghost" href="/syntaxy">Coming Soon</a></div>
+          </div>
+          <div class="app-card">
+            <div class="app-head">
+              <!-- Lexy: orange square face + small star (kid-friendly) -->
+              <svg class="app-logo" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect x="6" y="6" width="52" height="52" rx="12" fill="#ff7a00"/>
+                <circle cx="26" cy="26" r="3" fill="#111"/>
+                <circle cx="38" cy="26" r="3" fill="#111"/>
+                <path d="M22 38 q10 8 20 0" stroke="#eee" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+                <path d="M47 12 l2.5 5 5.5 .5 -4 3.6 1.2 5.4 -5-2.8 -5 2.8 1.2-5.4 -4-3.6 5.5-.5z" fill="#ffd166"/>
+              </svg>
+              <div class="app-title">Lexy</div>
+            </div>
+            <div class="app-desc">AI educational chatbot for children. Interactive conversational tutor that checks comprehension, encourages critical thinking, and makes learning engaging for K-12 students.</div>
+            <div class="app-actions"><a class="ghost" href="/lexy">Coming Soon</a></div>
+          </div>
+          <div class="app-card">
+            <div class="app-head">
+              <!-- FormataDock: orange square with smiley face wearing a hat -->
+              <svg class="app-logo" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect x="6" y="6" width="52" height="52" rx="12" fill="#FF8A00"/>
+                <!-- eyes -->
+                <circle cx="26" cy="28" r="2.5" fill="#111"/>
+                <circle cx="38" cy="28" r="2.5" fill="#111"/>
+                <!-- smile -->
+                <path d="M22 36 q10 8 20 0" stroke="#111" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+                <!-- hat brim -->
+                <ellipse cx="32" cy="18" rx="20" ry="4.5" fill="#111"/>
+                <!-- hat crown -->
+                <rect x="20" y="8" width="24" height="14" rx="2.5" fill="#111"/>
+              </svg>
+              <div class="app-title">FormataDock</div>
+            </div>
+            <div class="app-desc">Smart document formatting tool for Word docs — preserves tracked changes and handles multilingual content.</div>
+            <div class="app-actions"><a class="cta" href="https://formatadock.kagplus.com">Open</a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">© 2025 KagPlus+. All rights reserved.</div>
+    </footer>
+  </body>
+  </html>
