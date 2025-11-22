@@ -233,7 +233,7 @@
               <div class="app-title">REAP</div>
             </div>
             <div class="app-desc">REAP is an offline-ready English learning launcher that blends guided lessons and a Phaser game so learners can practice vocabulary, grammar, and reading even with spotty or no internet. It tracks profiles and progress across modules and stages, making it a practical companion for students and teachers in low-connectivity classrooms who need reliable, drop-in practice.</div>
-            <div class="app-actions"><a class="cta" href="/reap" id="reap-launch" onclick="return confirmLaunch(event)">Launch</a></div>
+            <div class="app-actions"><a class="cta" href="/reap/" id="reap-launch" onclick="return confirmLaunch(event)">Launch</a></div>
           </div>
           <div class="app-card">
             <div class="app-head">
@@ -315,7 +315,7 @@
           alert('To install REAP:\n\n1. Tap the Share button (square with arrow)\n2. Scroll down and tap "Add to Home Screen"\n3. Tap "Add" to install');
 
           // Navigate to REAP after they see the instructions
-          window.location.href = '/reap';
+          window.location.href = '/reap/';
           return false;
         }
 
@@ -336,7 +336,7 @@
           deferredPrompt = null;
         } else {
           // No install prompt available, just navigate
-          window.location.href = '/reap';
+          window.location.href = '/reap/';
         }
 
         return false;
