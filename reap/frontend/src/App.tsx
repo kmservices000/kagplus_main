@@ -12,9 +12,10 @@ const TeacherDashboard = lazy(() => import('./pages/TeacherDashboard'))
 const GamePage = lazy(() => import('./pages/GamePage'))
 
 const RouterComponent = window.location.protocol === 'file:' ? HashRouter : BrowserRouter
+const basename = window.location.protocol === 'file:' ? undefined : '/reap'
 
 const App = () => (
-  <RouterComponent>
+  <RouterComponent basename={basename}>
     <Suspense
       fallback={
         <div className="page loading-page">
