@@ -1,0 +1,16 @@
+{
+  "name": "REAP Launcher",
+  "short_name": "REAP",
+  "start_url": ".",
+  "scope": ".",
+  "display": "standalone",
+  "background_color": "#fef6f0",
+  "theme_color": "#fef6f0",
+  "icons": [
+    {
+      "src": "vite.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
