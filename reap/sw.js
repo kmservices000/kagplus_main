@@ -7,7 +7,7 @@ const getAppBase = () => {
 const APP_BASE = getAppBase()
 const INDEX_HTML = `${APP_BASE}index.html`
 // Bump the cache version so clients pick up the latest index (with the /reap redirect fix).
-const CACHE_NAME = 'reap-offline-v3'
+const CACHE_NAME = 'reap-offline-v4'
 const SHELL_ASSETS = [APP_BASE, INDEX_HTML]
 
 self.addEventListener('install', (event) => {
