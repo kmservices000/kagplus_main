@@ -1,0 +1,44 @@
+{
+  "moduleId": "grammar-quest",
+  "title": "Grammar Quest",
+  "description": "Sentence construction, tense, and agreement based on Module 0 refresher and Module 1 lessons.",
+  "questions": [
+    {
+      "id": "sva-1",
+      "prompt": "Choose the sentence with correct subject-verb agreement.",
+      "options": [
+        "The students studies before Academic English Writing class.",
+        "The students study before Academic English Writing class.",
+        "The student study before Academic English Writing class.",
+        "Students studying before Academic English Writing class."
+      ],
+      "answerIndex": 1,
+      "hint": "Plural subjects pair with base verbs.",
+      "passageId": "plaza"
+    },
+    {
+      "id": "tense-1",
+      "prompt": "Select the verb that keeps the sentence in past tense: ‘Lolo ____ a letter yesterday.’",
+      "options": ["writes", "write", "wrote", "writing"],
+      "answerIndex": 2,
+      "hint": "Past tense verbs often end with –ed or change form.",
+      "passageId": "fisher"
+    },
+    {
+      "id": "pronoun-1",
+      "prompt": "Which pronoun correctly replaces ‘the barangay captain’ in ‘I spoke to ___ yesterday’?",
+      "options": ["she", "them", "him", "it"],
+      "answerIndex": 2,
+      "hint": "Barangay captain is a specific person.",
+      "passageId": "plaza"
+    },
+    {
+      "id": "sentence-1",
+      "prompt": "Choose the option that is a complete sentence.",
+      "options": ["Running to school in the rain.", "Because we studied.", "The group presented their skit.", "When the bell rang."],
+      "answerIndex": 2,
+      "hint": "Sentences need a subject and verb that express a full idea.",
+      "passageId": "fisher"
+    }
+  ]
+}

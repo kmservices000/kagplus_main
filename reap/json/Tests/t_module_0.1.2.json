@@ -1,0 +1,400 @@
+[
+  {
+    "module_id": "0.1.2",
+    "module_title": "MEANING CONNECTORS (SECONDARY SET)",
+    "step4_label": "🟥 STEP 4 — TEST ITEMS (ENGLISH ONLY)",
+    "instructions": "✔ English-only\n ✔ Filipino names or contexts allowed\n ✔ Focus on prepositions, determiners (this/that/these/those), and conjunctions (coordinating/subordinating/correlative)\n ✔ 30 items for practice",
+    "items": [
+      {
+        "number": 1,
+        "header": "⭐ Item 1 — Identify the preposition (location)",
+        "question": "In the sentence, \"Lena placed the lantern under the table during the brownout.\", which word is the preposition showing location?",
+        "options": {
+          "A": "lantern",
+          "B": "under",
+          "C": "during",
+          "D": "brownout"
+        },
+        "correct_option": "B",
+        "correct_answer": "under"
+      },
+      {
+        "number": 2,
+        "header": "⭐ Item 2 — Identify the preposition (time)",
+        "question": "In the sentence, \"The morning assembly starts at 8:00 A.M.\", which word is the preposition showing time?",
+        "options": {
+          "A": "at",
+          "B": "on",
+          "C": "in",
+          "D": "by"
+        },
+        "correct_option": "A",
+        "correct_answer": "at"
+      },
+      {
+        "number": 3,
+        "header": "⭐ Item 3 — Identify the determiner (near + singular)",
+        "question": "In the sentence, \"This pencil on my desk is yours.\", which word is the determiner?",
+        "options": {
+          "A": "This",
+          "B": "That",
+          "C": "These",
+          "D": "Those"
+        },
+        "correct_option": "A",
+        "correct_answer": "This"
+      },
+      {
+        "number": 4,
+        "header": "⭐ Item 4 — Identify the determiner (far + plural)",
+        "question": "In the sentence, \"Those posters on the back wall were made by Grade 9.\", which word is the determiner?",
+        "options": {
+          "A": "This",
+          "B": "That",
+          "C": "These",
+          "D": "Those"
+        },
+        "correct_option": "D",
+        "correct_answer": "Those"
+      },
+      {
+        "number": 5,
+        "header": "⭐ Item 5 — Identify the determiner (near + plural)",
+        "question": "In the sentence, \"These snacks here are for the volunteers.\", which word is the determiner?",
+        "options": {
+          "A": "This",
+          "B": "That",
+          "C": "These",
+          "D": "Those"
+        },
+        "correct_option": "C",
+        "correct_answer": "These"
+      },
+      {
+        "number": 6,
+        "header": "⭐ Item 6 — Identify the coordinating conjunction",
+        "question": "In the sentence, \"I wanted to nap, but the rain was too loud.\", which word is the coordinating conjunction?",
+        "options": {
+          "A": "wanted",
+          "B": "nap",
+          "C": "but",
+          "D": "rain"
+        },
+        "correct_option": "C",
+        "correct_answer": "but"
+      },
+      {
+        "number": 7,
+        "header": "⭐ Item 7 — Identify the subordinating conjunction (time)",
+        "question": "In the sentence, \"When the traffic clears, we will leave the parking lot.\", which word is the subordinating conjunction?",
+        "options": {
+          "A": "Although",
+          "B": "Because",
+          "C": "When",
+          "D": "And"
+        },
+        "correct_option": "C",
+        "correct_answer": "When"
+      },
+      {
+        "number": 8,
+        "header": "⭐ Item 8 — Identify the correlative conjunction pair",
+        "question": "In the sentence, \"Either you text me or you call, please confirm the schedule.\", which pair is the correlative conjunction?",
+        "options": {
+          "A": "Either…or",
+          "B": "Both…and",
+          "C": "Because…so",
+          "D": "Neither…nor"
+        },
+        "correct_option": "A",
+        "correct_answer": "Either…or"
+      },
+      {
+        "number": 9,
+        "header": "⭐ Item 9 — Identify the preposition (direction)",
+        "question": "In the sentence, \"The children ran into the covered court when it started to drizzle.\", which word is the preposition showing direction?",
+        "options": {
+          "A": "into",
+          "B": "so",
+          "C": "that",
+          "D": "yet"
+        },
+        "correct_option": "A",
+        "correct_answer": "into"
+      },
+      {
+        "number": 10,
+        "header": "⭐ Item 10 — Identify the preposition (time)",
+        "question": "In the sentence, \"The cafeteria closes before lunchtime.\", which word is the preposition?",
+        "options": {
+          "A": "before",
+          "B": "between",
+          "C": "although",
+          "D": "these"
+        },
+        "correct_option": "A",
+        "correct_answer": "before"
+      },
+      {
+        "number": 11,
+        "header": "⭐ Item 11 — Identify the subordinating conjunction (reason)",
+        "question": "In the sentence, \"She stayed because she wanted to help.\", which word is the subordinating conjunction?",
+        "options": {
+          "A": "stayed",
+          "B": "because",
+          "C": "wanted",
+          "D": "help"
+        },
+        "correct_option": "B",
+        "correct_answer": "because"
+      },
+      {
+        "number": 12,
+        "header": "⭐ Item 12 — Identify the preposition (location)",
+        "question": "In the sentence, \"The statue stands beside the old acacia tree.\", which word is the preposition?",
+        "options": {
+          "A": "stands",
+          "B": "beside",
+          "C": "old",
+          "D": "tree"
+        },
+        "correct_option": "B",
+        "correct_answer": "beside"
+      },
+      {
+        "number": 13,
+        "header": "⭐ Item 13 — Identify the determiner (far + singular)",
+        "question": "In the sentence, \"That is the mountain we climbed last summer.\", which word is the determiner?",
+        "options": {
+          "A": "This",
+          "B": "That",
+          "C": "These",
+          "D": "Those"
+        },
+        "correct_option": "B",
+        "correct_answer": "That"
+      },
+      {
+        "number": 14,
+        "header": "⭐ Item 14 — Identify the coordinating conjunction (choice)",
+        "question": "In the sentence, \"We can ride a jeepney or take a tricycle to the market.\", which word is the coordinating conjunction?",
+        "options": {
+          "A": "and",
+          "B": "but",
+          "C": "or",
+          "D": "if"
+        },
+        "correct_option": "C",
+        "correct_answer": "or"
+      },
+      {
+        "number": 15,
+        "header": "⭐ Item 15 — Identify the preposition (position)",
+        "question": "In the sentence, \"The drone flew above the rice fields.\", which word is the preposition?",
+        "options": {
+          "A": "drone",
+          "B": "flew",
+          "C": "above",
+          "D": "fields"
+        },
+        "correct_option": "C",
+        "correct_answer": "above"
+      },
+      {
+        "number": 16,
+        "header": "⭐ Item 16 — Identify the correlative conjunction pair",
+        "question": "In the sentence, \"Both Liza and Mico submitted their reports early.\", which pair is the correlative conjunction?",
+        "options": {
+          "A": "Both…and",
+          "B": "Either…nor",
+          "C": "Neither…or",
+          "D": "Because…although"
+        },
+        "correct_option": "A",
+        "correct_answer": "Both…and"
+      },
+      {
+        "number": 17,
+        "header": "⭐ Item 17 — Identify the preposition (means)",
+        "question": "In the sentence, \"The letter was sent by courier to Manila.\", which word is the preposition showing means?",
+        "options": {
+          "A": "by",
+          "B": "into",
+          "C": "that",
+          "D": "and"
+        },
+        "correct_option": "A",
+        "correct_answer": "by"
+      },
+      {
+        "number": 18,
+        "header": "⭐ Item 18 — Identify the determiner (near + singular)",
+        "question": "In the sentence, \"This aroma from the kitchen makes everyone hungry.\", which word is the determiner?",
+        "options": {
+          "A": "This",
+          "B": "That",
+          "C": "These",
+          "D": "Those"
+        },
+        "correct_option": "A",
+        "correct_answer": "This"
+      },
+      {
+        "number": 19,
+        "header": "⭐ Item 19 — Identify the coordinating conjunction (result)",
+        "question": "In the sentence, \"The bus was delayed, so we missed the first session.\", which word is the coordinating conjunction?",
+        "options": {
+          "A": "but",
+          "B": "so",
+          "C": "for",
+          "D": "neither"
+        },
+        "correct_option": "B",
+        "correct_answer": "so"
+      },
+      {
+        "number": 20,
+        "header": "⭐ Item 20 — Identify the preposition (direction)",
+        "question": "In the sentence, \"The hikers moved toward the peak before noon.\", which word shows direction?",
+        "options": {
+          "A": "toward",
+          "B": "because",
+          "C": "and",
+          "D": "this"
+        },
+        "correct_option": "A",
+        "correct_answer": "toward"
+      },
+      {
+        "number": 21,
+        "header": "⭐ Item 21 — Identify the preposition (position)",
+        "question": "In the sentence, \"The new clinic is between the barangay hall and the gym.\", which word is the preposition?",
+        "options": {
+          "A": "new",
+          "B": "between",
+          "C": "clinic",
+          "D": "gym"
+        },
+        "correct_option": "B",
+        "correct_answer": "between"
+      },
+      {
+        "number": 22,
+        "header": "⭐ Item 22 — Identify the determiner (far + plural)",
+        "question": "In the sentence, \"Those chairs near the door are reserved for guests.\", which word is the determiner?",
+        "options": {
+          "A": "This",
+          "B": "That",
+          "C": "These",
+          "D": "Those"
+        },
+        "correct_option": "D",
+        "correct_answer": "Those"
+      },
+      {
+        "number": 23,
+        "header": "⭐ Item 23 — Identify the subordinating conjunction (reason)",
+        "question": "In the sentence, \"Because it was raining, the parade paused.\", which word is the subordinating conjunction?",
+        "options": {
+          "A": "Because",
+          "B": "But",
+          "C": "Or",
+          "D": "Yet"
+        },
+        "correct_option": "A",
+        "correct_answer": "Because"
+      },
+      {
+        "number": 24,
+        "header": "⭐ Item 24 — Identify the preposition (time)",
+        "question": "In the sentence, \"The review class ends after the evening news.\", which word is the preposition?",
+        "options": {
+          "A": "after",
+          "B": "for",
+          "C": "and",
+          "D": "that"
+        },
+        "correct_option": "A",
+        "correct_answer": "after"
+      },
+      {
+        "number": 25,
+        "header": "⭐ Item 25 — Identify the correlative conjunction pair (negative)",
+        "question": "In the sentence, \"Neither the students nor the teachers wanted to cancel the outreach.\", which pair is the correlative conjunction?",
+        "options": {
+          "A": "Neither…nor",
+          "B": "Either…or",
+          "C": "Both…and",
+          "D": "Because…so"
+        },
+        "correct_option": "A",
+        "correct_answer": "Neither…nor"
+      },
+      {
+        "number": 26,
+        "header": "⭐ Item 26 — Identify the preposition (surface)",
+        "question": "In the sentence, \"Write your name on the attendance sheet posted outside.\", which word is the preposition?",
+        "options": {
+          "A": "Write",
+          "B": "name",
+          "C": "on",
+          "D": "outside"
+        },
+        "correct_option": "C",
+        "correct_answer": "on"
+      },
+      {
+        "number": 27,
+        "header": "⭐ Item 27 — Identify the determiner (near + plural)",
+        "question": "In the sentence, \"These slippers by the mat belong to the twins.\", which word is the determiner?",
+        "options": {
+          "A": "This",
+          "B": "That",
+          "C": "These",
+          "D": "Those"
+        },
+        "correct_option": "C",
+        "correct_answer": "These"
+      },
+      {
+        "number": 28,
+        "header": "⭐ Item 28 — Identify the coordinating conjunction (contrast)",
+        "question": "In the sentence, \"The sky looked clear, yet thunder rumbled in the distance.\", which word is the coordinating conjunction?",
+        "options": {
+          "A": "yet",
+          "B": "and",
+          "C": "so",
+          "D": "either"
+        },
+        "correct_option": "A",
+        "correct_answer": "yet"
+      },
+      {
+        "number": 29,
+        "header": "⭐ Item 29 — Identify the preposition (location)",
+        "question": "In the sentence, \"The bakery is across the plaza from the church.\", which word is the preposition showing location?",
+        "options": {
+          "A": "bakery",
+          "B": "across",
+          "C": "plaza",
+          "D": "church"
+        },
+        "correct_option": "B",
+        "correct_answer": "across"
+      },
+      {
+        "number": 30,
+        "header": "⭐ Item 30 — Identify the subordinating conjunction (condition)",
+        "question": "In the sentence, \"Bring an umbrella if the forecast changes suddenly.\", which word is the subordinating conjunction?",
+        "options": {
+          "A": "if",
+          "B": "but",
+          "C": "and",
+          "D": "those"
+        },
+        "correct_option": "A",
+        "correct_answer": "if"
+      }
+    ]
+  }
+]

@@ -1,0 +1,142 @@
+[
+  {
+    "module_id": "0.2.1",
+    "module_title": "WHAT IS SIMPLE PRESENT TENSE AND WHEN DO WE USE IT?",
+    "step4_label": "🟥 STEP 4 — TEST ITEMS (ENGLISH ONLY)",
+    "instructions": "✔ English-only\n ✔ Filipino names or contexts allowed\n ✔ Simple yes/no: Is the sentence in simple present tense?\n ✔ 12 items for practice",
+    "items": [
+      {
+        "number": 1,
+        "header": "⭐ Item 1 — Yes/No (simple present?)",
+        "question": "Ana drinks salabat every morning before class.",
+        "options": {
+          "A": "Yes",
+          "B": "No"
+        },
+        "correct_option": "A",
+        "correct_answer": "Yes"
+      },
+      {
+        "number": 2,
+        "header": "⭐ Item 2 — Yes/No (simple present?)",
+        "question": "The bus leaves at 7:00 and arrives at 7:30.",
+        "options": {
+          "A": "Yes",
+          "B": "No"
+        },
+        "correct_option": "A",
+        "correct_answer": "Yes"
+      },
+      {
+        "number": 3,
+        "header": "⭐ Item 3 — Yes/No (simple present?)",
+        "question": "They were studying at the library last night.",
+        "options": {
+          "A": "Yes",
+          "B": "No"
+        },
+        "correct_option": "B",
+        "correct_answer": "No"
+      },
+      {
+        "number": 4,
+        "header": "⭐ Item 4 — Yes/No (simple present?)",
+        "question": "Water boils at 100°C.",
+        "options": {
+          "A": "Yes",
+          "B": "No"
+        },
+        "correct_option": "A",
+        "correct_answer": "Yes"
+      },
+      {
+        "number": 5,
+        "header": "⭐ Item 5 — Yes/No (simple present?)",
+        "question": "The children play at the plaza after lunch.",
+        "options": {
+          "A": "Yes",
+          "B": "No"
+        },
+        "correct_option": "A",
+        "correct_answer": "Yes"
+      },
+      {
+        "number": 6,
+        "header": "⭐ Item 6 — Yes/No (simple present?)",
+        "question": "Joshua is cooking pancit right now.",
+        "options": {
+          "A": "Yes",
+          "B": "No"
+        },
+        "correct_option": "B",
+        "correct_answer": "No"
+      },
+      {
+        "number": 7,
+        "header": "⭐ Item 7 — Yes/No (simple present?)",
+        "question": "Liza and Carlo submit their projects on Fridays.",
+        "options": {
+          "A": "Yes",
+          "B": "No"
+        },
+        "correct_option": "A",
+        "correct_answer": "Yes"
+      },
+      {
+        "number": 8,
+        "header": "⭐ Item 8 — Yes/No (simple present?)",
+        "question": "The jeep is waiting outside right now.",
+        "options": {
+          "A": "Yes",
+          "B": "No"
+        },
+        "correct_option": "B",
+        "correct_answer": "No"
+      },
+      {
+        "number": 9,
+        "header": "⭐ Item 9 — Yes/No (simple present?)",
+        "question": "My cousin visits Lola every weekend.",
+        "options": {
+          "A": "Yes",
+          "B": "No"
+        },
+        "correct_option": "A",
+        "correct_answer": "Yes"
+      },
+      {
+        "number": 10,
+        "header": "⭐ Item 10 — Yes/No (simple present?)",
+        "question": "They will travel to Baguio next month.",
+        "options": {
+          "A": "Yes",
+          "B": "No"
+        },
+        "correct_option": "B",
+        "correct_answer": "No"
+      },
+      {
+        "number": 11,
+        "header": "⭐ Item 11 — Yes/No (simple present?)",
+        "question": "Paolo reads comics before sleeping.",
+        "options": {
+          "A": "Yes",
+          "B": "No"
+        },
+        "correct_option": "A",
+        "correct_answer": "Yes"
+      },
+      {
+        "number": 12,
+        "header": "⭐ Item 12 — Yes/No (simple present?)",
+        "question": "The rain poured for two hours yesterday.",
+        "options": {
+          "A": "Yes",
+          "B": "No"
+        },
+        "correct_option": "B",
+        "correct_answer": "No"
+      }
+    ]
+  }
+]

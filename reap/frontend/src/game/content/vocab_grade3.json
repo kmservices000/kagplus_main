@@ -1,0 +1,47 @@
+{
+  "moduleId": "vocab-adventure",
+  "title": "Vocabulary Adventure",
+  "description": "Grade 6 refresher on the Module 0 Parts of Speech deck.",
+  "questions": [
+    {
+      "id": "noun-1",
+      "prompt": "Which word is a noun in the sentence ‘Lola Mercy cooks sweet bibingka.’?",
+      "options": ["cooks", "sweet", "Lola Mercy", "quickly"],
+      "answerIndex": 2,
+      "concept": "Nouns label people, places, or things.",
+      "context": "Module 0.1.1 Examples"
+    },
+    {
+      "id": "verb-1",
+      "prompt": "Which word shows the action in ‘The noisy tricycle passed quickly’?",
+      "options": ["tricycle", "noisy", "passed", "quickly"],
+      "answerIndex": 2,
+      "concept": "Verbs show action or state.",
+      "context": "Module 0.1.1 Examples"
+    },
+    {
+      "id": "adjective-1",
+      "prompt": "Select the adjective that describes a noun.",
+      "options": ["teacher", "bright", "slowly", "jumps"],
+      "answerIndex": 1,
+      "concept": "Adjectives describe nouns.",
+      "context": "Module 0.1.1 Flow"
+    },
+    {
+      "id": "adverb-1",
+      "prompt": "Which option tells HOW the action happens?",
+      "options": ["market", "slowly", "vegetables", "dancer"],
+      "answerIndex": 1,
+      "concept": "Adverbs describe verbs, adjectives, or adverbs.",
+      "context": "Step 4 Quiz"
+    },
+    {
+      "id": "parts-1",
+      "prompt": "Which part of speech can replace a noun so sentences avoid repeating names?",
+      "options": ["Verb", "Adverb", "Pronoun", "Adjective"],
+      "answerIndex": 2,
+      "concept": "Pronouns stand in for nouns.",
+      "context": "Definition card"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "passages": [
+    {
+      "id": "plaza",
+      "title": "Morning at the Plaza",
+      "text": "Learners gather around the plaza before class. The sari-sari store opens early, and a jeepney waits for passengers heading to school.",
+      "question": "Why do learners arrive early at the plaza?",
+      "options": [
+        "They need to catch the jeepney together.",
+        "They want to buy lunch immediately.",
+        "They are practicing a dance.",
+        "They are waiting for rain to stop."
+      ],
+      "answerIndex": 0
+    },
+    {
+      "id": "fisher",
+      "title": "Rainy Day Story",
+      "text": "Kuya Jun is a young fisher who writes short notes about the weather. When dark clouds arrive, he reminds his siblings to review lessons indoors.",
+      "question": "What does Kuya Jun do when the sky turns dark?",
+      "options": [
+        "He sails anyway.",
+        "He writes about the weather and stays inside.",
+        "He sleeps all day.",
+        "He sells snacks at the market."
+      ],
+      "answerIndex": 1
+    }
+  ]
+}

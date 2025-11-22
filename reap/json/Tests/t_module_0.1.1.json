@@ -1,0 +1,466 @@
+[
+  {
+    "module_id": "0.1.1",
+    "module_title": "PARTS OF SPEECH (CORE SET)",
+    "step4_label": "🟥 STEP 4 — TEST ITEMS (ENGLISH ONLY)",
+    "instructions": "✔ English-only\n ✔ Filipino names or contexts allowed\n ✔ Testing understanding of parts of speech\n ✔ 35 items for practice",
+    "items": [
+      {
+        "number": 1,
+        "header": "⭐ Item 1 — Identify the noun",
+        "question": "In the sentence, \"Jolina carries a heavy bag to school in Cebu City.\", which word is a noun?",
+        "options": {
+          "A": "heavy",
+          "B": "carries",
+          "C": "Jolina",
+          "D": "to"
+        },
+        "correct_option": "C",
+        "correct_answer": "Jolina"
+      },
+      {
+        "number": 2,
+        "header": "⭐ Item 2 — Identify the verb",
+        "question": "In the sentence, \"Mark cooks sinigang for his family every Sunday.\", which word is a verb?",
+        "options": {
+          "A": "Mark",
+          "B": "cooks",
+          "C": "family",
+          "D": "Sunday"
+        },
+        "correct_option": "B",
+        "correct_answer": "cooks"
+      },
+      {
+        "number": 3,
+        "header": "⭐ Item 3 — Identify the adjective",
+        "question": "In the sentence, \"Liza bought fresh mangoes from the market in Davao.\", which word is an adjective?",
+        "options": {
+          "A": "Liza",
+          "B": "bought",
+          "C": "fresh",
+          "D": "market"
+        },
+        "correct_option": "C",
+        "correct_answer": "fresh"
+      },
+      {
+        "number": 4,
+        "header": "⭐ Item 4 — Identify the adverb",
+        "question": "In the sentence, \"Carlo walks slowly when the street is crowded.\", which word is an adverb?",
+        "options": {
+          "A": "Carlo",
+          "B": "walks",
+          "C": "slowly",
+          "D": "street"
+        },
+        "correct_option": "C",
+        "correct_answer": "slowly"
+      },
+      {
+        "number": 5,
+        "header": "⭐ Item 5 — Identify the pronoun",
+        "question": "In the sentence, \"Ate Mila is kind, and she helps the kids in the barangay.\", which word is a pronoun?",
+        "options": {
+          "A": "Ate",
+          "B": "Mila",
+          "C": "she",
+          "D": "kids"
+        },
+        "correct_option": "C",
+        "correct_answer": "she"
+      },
+      {
+        "number": 6,
+        "header": "⭐ Item 6 — Identify the noun",
+        "question": "In the sentence, \"The jeepney driver greeted every passenger in Quezon City.\", which word is a noun?",
+        "options": {
+          "A": "driver",
+          "B": "greeted",
+          "C": "every",
+          "D": "in"
+        },
+        "correct_option": "A",
+        "correct_answer": "driver"
+      },
+      {
+        "number": 7,
+        "header": "⭐ Item 7 — Identify the verb",
+        "question": "In the sentence, \"Tita Liza waters the plants outside their small apartment.\", which word is a verb?",
+        "options": {
+          "A": "Tita",
+          "B": "Liza",
+          "C": "waters",
+          "D": "plants"
+        },
+        "correct_option": "C",
+        "correct_answer": "waters"
+      },
+      {
+        "number": 8,
+        "header": "⭐ Item 8 — Identify the adjective",
+        "question": "In the sentence, \"We ate spicy pancit during the town fiesta.\", which word is an adjective?",
+        "options": {
+          "A": "ate",
+          "B": "spicy",
+          "C": "pancit",
+          "D": "fiesta"
+        },
+        "correct_option": "B",
+        "correct_answer": "spicy"
+      },
+      {
+        "number": 9,
+        "header": "⭐ Item 9 — Identify the adverb",
+        "question": "In the sentence, \"Jomar sings loudly at the karaoke with his cousins.\", which word is an adverb?",
+        "options": {
+          "A": "Jomar",
+          "B": "sings",
+          "C": "loudly",
+          "D": "cousins"
+        },
+        "correct_option": "C",
+        "correct_answer": "loudly"
+      },
+      {
+        "number": 10,
+        "header": "⭐ Item 10 — Identify the pronoun",
+        "question": "In the sentence, \"The teacher told us to clean the classroom before going home.\", which word is a pronoun?",
+        "options": {
+          "A": "teacher",
+          "B": "told",
+          "C": "us",
+          "D": "classroom"
+        },
+        "correct_option": "C",
+        "correct_answer": "us"
+      },
+      {
+        "number": 11,
+        "header": "⭐ Item 11 — Identify the noun",
+        "question": "In the sentence, \"Mika left her umbrella at the sari-sari store.\", which word is a noun?",
+        "options": {
+          "A": "left",
+          "B": "her",
+          "C": "umbrella",
+          "D": "at"
+        },
+        "correct_option": "C",
+        "correct_answer": "umbrella"
+      },
+      {
+        "number": 12,
+        "header": "⭐ Item 12 — Identify the verb",
+        "question": "In the sentence, \"Papa Joel fixes broken chairs for the barangay hall.\", which word is a verb?",
+        "options": {
+          "A": "Papa",
+          "B": "Joel",
+          "C": "fixes",
+          "D": "chairs"
+        },
+        "correct_option": "C",
+        "correct_answer": "fixes"
+      },
+      {
+        "number": 13,
+        "header": "⭐ Item 13 — Identify the adjective",
+        "question": "In the sentence, \"Loren wears a colorful dress to the school program.\", which word is an adjective?",
+        "options": {
+          "A": "wears",
+          "B": "colorful",
+          "C": "dress",
+          "D": "school"
+        },
+        "correct_option": "B",
+        "correct_answer": "colorful"
+      },
+      {
+        "number": 14,
+        "header": "⭐ Item 14 — Identify the adverb",
+        "question": "In the sentence, \"The children played happily in the barangay basketball court.\", which word is an adverb?",
+        "options": {
+          "A": "children",
+          "B": "played",
+          "C": "happily",
+          "D": "court"
+        },
+        "correct_option": "C",
+        "correct_answer": "happily"
+      },
+      {
+        "number": 15,
+        "header": "⭐ Item 15 — Identify the pronoun",
+        "question": "In the sentence, \"Kuya Ben cooked dinner, and we thanked him after eating.\", which word is a pronoun?",
+        "options": {
+          "A": "Kuya",
+          "B": "we",
+          "C": "Ben",
+          "D": "dinner"
+        },
+        "correct_option": "B",
+        "correct_answer": "we"
+      },
+      {
+        "number": 16,
+        "header": "⭐ Item 16 — Identify the noun",
+        "question": "In the sentence, \"The tricycle brought the students to the public library.\", which word is a noun?",
+        "options": {
+          "A": "brought",
+          "B": "students",
+          "C": "to",
+          "D": "the"
+        },
+        "correct_option": "B",
+        "correct_answer": "students"
+      },
+      {
+        "number": 17,
+        "header": "⭐ Item 17 — Identify the verb",
+        "question": "In the sentence, \"Rica washes the dishes after eating lechon with her family.\", which word is a verb?",
+        "options": {
+          "A": "Rica",
+          "B": "washes",
+          "C": "dishes",
+          "D": "family"
+        },
+        "correct_option": "B",
+        "correct_answer": "washes"
+      },
+      {
+        "number": 18,
+        "header": "⭐ Item 18 — Identify the adjective",
+        "question": "In the sentence, \"Lito lives in a quiet street near the plaza.\", which word is an adjective?",
+        "options": {
+          "A": "lives",
+          "B": "quiet",
+          "C": "street",
+          "D": "plaza"
+        },
+        "correct_option": "B",
+        "correct_answer": "quiet"
+      },
+      {
+        "number": 19,
+        "header": "⭐ Item 19 — Identify the adverb",
+        "question": "In the sentence, \"Mara carefully writes her name on the contest form.\", which word is an adverb?",
+        "options": {
+          "A": "Mara",
+          "B": "carefully",
+          "C": "writes",
+          "D": "name"
+        },
+        "correct_option": "B",
+        "correct_answer": "carefully"
+      },
+      {
+        "number": 20,
+        "header": "⭐ Item 20 — Identify the pronoun",
+        "question": "In the sentence, \"The barangay captain asked them to join the clean-up drive.\", which word is a pronoun?",
+        "options": {
+          "A": "barangay",
+          "B": "captain",
+          "C": "asked",
+          "D": "them"
+        },
+        "correct_option": "D",
+        "correct_answer": "them"
+      },
+      {
+        "number": 21,
+        "header": "⭐ Item 21 — Identify the noun",
+        "question": "In the sentence, \"Tanya forgot her notebook on the desk in the computer room.\", which word is a noun?",
+        "options": {
+          "A": "forgot",
+          "B": "her",
+          "C": "notebook",
+          "D": "on"
+        },
+        "correct_option": "C",
+        "correct_answer": "notebook"
+      },
+      {
+        "number": 22,
+        "header": "⭐ Item 22 — Identify the verb",
+        "question": "In the sentence, \"The vendors sell fresh fish at the wet market.\", which word is a verb?",
+        "options": {
+          "A": "vendors",
+          "B": "sell",
+          "C": "fresh",
+          "D": "fish"
+        },
+        "correct_option": "B",
+        "correct_answer": "sell"
+      },
+      {
+        "number": 23,
+        "header": "⭐ Item 23 — Identify the adjective",
+        "question": "In the sentence, \"Lara brought a big umbrella because of the strong rain.\", which word is an adjective?",
+        "options": {
+          "A": "big",
+          "B": "umbrella",
+          "C": "because",
+          "D": "rain"
+        },
+        "correct_option": "A",
+        "correct_answer": "big"
+      },
+      {
+        "number": 24,
+        "header": "⭐ Item 24 — Identify the adverb",
+        "question": "In the sentence, \"Paolo quickly finished his project before the deadline.\", which word is an adverb?",
+        "options": {
+          "A": "Paolo",
+          "B": "quickly",
+          "C": "finished",
+          "D": "project"
+        },
+        "correct_option": "B",
+        "correct_answer": "quickly"
+      },
+      {
+        "number": 25,
+        "header": "⭐ Item 25 — Identify the pronoun",
+        "question": "In the sentence, \"My cousins are excited because they will visit Baguio City.\", which word is a pronoun?",
+        "options": {
+          "A": "cousins",
+          "B": "excited",
+          "C": "they",
+          "D": "visit"
+        },
+        "correct_option": "C",
+        "correct_answer": "they"
+      },
+      {
+        "number": 26,
+        "header": "⭐ Item 26 — Identify the noun",
+        "question": "In the sentence, \"The students planted trees near the river in our town.\", which word is a noun?",
+        "options": {
+          "A": "planted",
+          "B": "trees",
+          "C": "near",
+          "D": "our"
+        },
+        "correct_option": "B",
+        "correct_answer": "trees"
+      },
+      {
+        "number": 27,
+        "header": "⭐ Item 27 — Identify the verb",
+        "question": "In the sentence, \"Nanay Ana sells vegetables in the morning at the palengke.\", which word is a verb?",
+        "options": {
+          "A": "Nanay",
+          "B": "Ana",
+          "C": "sells",
+          "D": "vegetables"
+        },
+        "correct_option": "C",
+        "correct_answer": "sells"
+      },
+      {
+        "number": 28,
+        "header": "⭐ Item 28 — Identify the adjective",
+        "question": "In the sentence, \"The noisy classroom became silent when the principal arrived.\", which word is an adjective?",
+        "options": {
+          "A": "noisy",
+          "B": "classroom",
+          "C": "silent",
+          "D": "principal"
+        },
+        "correct_option": "A",
+        "correct_answer": "noisy"
+      },
+      {
+        "number": 29,
+        "header": "⭐ Item 29 — Identify the adverb",
+        "question": "In the sentence, \"Miguel read the announcement carefully before signing the form.\", which word is an adverb?",
+        "options": {
+          "A": "Miguel",
+          "B": "read",
+          "C": "announcement",
+          "D": "carefully"
+        },
+        "correct_option": "D",
+        "correct_answer": "carefully"
+      },
+      {
+        "number": 30,
+        "header": "⭐ Item 30 — Identify the pronoun",
+        "question": "In the sentence, \"My brother and I cleaned the yard, so Mama rewarded us.\", which word is a pronoun?",
+        "options": {
+          "A": "brother",
+          "B": "I",
+          "C": "yard",
+          "D": "Mama"
+        },
+        "correct_option": "B",
+        "correct_answer": "I"
+      },
+      {
+        "number": 31,
+        "header": "⭐ Item 31 — Identify the noun",
+        "question": "In the sentence, \"During the festival, children wore masks and danced in the street.\", which word is a noun?",
+        "options": {
+          "A": "wore",
+          "B": "masks",
+          "C": "danced",
+          "D": "in"
+        },
+        "correct_option": "B",
+        "correct_answer": "masks"
+      },
+      {
+        "number": 32,
+        "header": "⭐ Item 32 — Identify the verb",
+        "question": "In the sentence, \"Tito Ramon painted the old gate before the visitors arrived.\", which word is a verb?",
+        "options": {
+          "A": "Tito",
+          "B": "Ramon",
+          "C": "painted",
+          "D": "gate"
+        },
+        "correct_option": "C",
+        "correct_answer": "painted"
+      },
+      {
+        "number": 33,
+        "header": "⭐ Item 33 — Identify the adjective",
+        "question": "In the sentence, \"The small store at the corner sells cold drinks.\", which word is an adjective?",
+        "options": {
+          "A": "small",
+          "B": "store",
+          "C": "corner",
+          "D": "drinks"
+        },
+        "correct_option": "A",
+        "correct_answer": "small"
+      },
+      {
+        "number": 34,
+        "header": "⭐ Item 34 — Identify the adverb",
+        "question": "In the sentence, \"Joey politely asked his Lola for another slice of bibingka.\", which word is an adverb?",
+        "options": {
+          "A": "Joey",
+          "B": "politely",
+          "C": "asked",
+          "D": "Lola"
+        },
+        "correct_option": "B",
+        "correct_answer": "politely"
+      },
+      {
+        "number": 35,
+        "header": "⭐ Item 35 — Identify the pronoun",
+        "question": "In the sentence, \"After the meeting, the officers thanked her for the clear report.\", which word is a pronoun?",
+        "options": {
+          "A": "officers",
+          "B": "thanked",
+          "C": "her",
+          "D": "report"
+        },
+        "correct_option": "C",
+        "correct_answer": "her"
+      }
+    ]
+  }
+]
+
