@@ -303,6 +303,23 @@
       async function confirmLaunch(event) {
         event.preventDefault();
 
+        // On iOS, show instructions first before navigating
+        if (/iPhone|iPad|iPod/.test(navigator.userAgent)) {
+          const confirmed = confirm('Do you want to download and install REAP? \n\nThis app works offline and can be installed on your device like a native app.');
+
+          if (!confirmed) {
+            return false;
+          }
+
+          // Show installation instructions
+          alert('To install REAP:\n\n1. Tap the Share button (square with arrow)\n2. Scroll down and tap "Add to Home Screen"\n3. Tap "Add" to install');
+
+          // Navigate to REAP after they see the instructions
+          window.location.href = '/reap';
+          return false;
+        }
+
+        // Desktop flow
         const confirmed = confirm('Do you want to download and install REAP? \n\nThis app works offline and can be installed on your device like a native app.');
 
         if (!confirmed) {
@@ -318,16 +335,8 @@
           }
           deferredPrompt = null;
         } else {
-          // For iOS or if install prompt not available, navigate to the app
-          // and show instructions
+          // No install prompt available, just navigate
           window.location.href = '/reap';
-
-          // On iOS, users need to manually "Add to Home Screen"
-          if (/iPhone|iPad|iPod/.test(navigator.userAgent)) {
-            setTimeout(() => {
-              alert('To install REAP:\n\n1. Tap the Share button (square with arrow)\n2. Scroll down and tap "Add to Home Screen"\n3. Tap "Add" to install');
-            }, 1000);
-          }
         }
 
         return false;
