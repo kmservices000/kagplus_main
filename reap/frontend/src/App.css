@@ -661,12 +661,14 @@
 
 .content-definitions {
   margin: 0.6rem 0;
-  padding-left: 1.2rem;
+  padding-left: 0;
+  list-style: none;
 }
 
 .content-definitions li {
   margin-bottom: 0.25rem;
   color: #432515;
+  list-style: none;
 }
 
 .example-card {
@@ -788,6 +790,51 @@
 
 .mc-conj {
   color: #d35400;
+}
+
+.color-red {
+  color: #c0392b;
+  font-weight: 700;
+}
+
+.color-blue {
+  color: #1a73e8;
+  font-weight: 700;
+}
+
+.color-purple {
+  color: #7c4dff;
+  font-weight: 700;
+}
+
+.color-green {
+  color: #1b9c57;
+  font-weight: 700;
+}
+
+.color-orange {
+  color: #d35400;
+  font-weight: 700;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.definition-break {
+  list-style: none;
+}
+
+.definition-example {
+  padding-left: 1.25rem;
+  list-style-type: disc;
+  list-style-position: outside;
+}
+
+.break-spacer {
+  display: inline-block;
+  width: 3ch;
+  white-space: pre;
 }
 
 .sp-verb-s {

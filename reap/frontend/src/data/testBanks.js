@@ -4,8 +4,21 @@ import module021Bank from '@tests/t_module_0.2.1.json';
 import module022Bank from '@tests/t_module_0.2.2.json';
 import module023Bank from '@tests/t_module_0.2.3.json';
 import module024Bank from '@tests/t_module_0.2.4.json';
+import module025Bank from '@tests/t_module_0.2.5.json';
+import module026Bank from '@tests/t_module_0.2.6.json';
 
-const rawBanks = [module011Bank, module012Bank, module021Bank, module022Bank, module023Bank, module024Bank].flat().filter(Boolean);
+const rawBanks = [
+  module011Bank,
+  module012Bank,
+  module021Bank,
+  module022Bank,
+  module023Bank,
+  module024Bank,
+  module025Bank,
+  module026Bank,
+]
+  .flat()
+  .filter(Boolean);
 
 const bankByModule = rawBanks.reduce((acc, entry) => {
   if (entry?.module_id) {

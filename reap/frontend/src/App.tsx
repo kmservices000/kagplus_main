@@ -12,7 +12,8 @@ const TeacherDashboard = lazy(() => import('./pages/TeacherDashboard'))
 const GamePage = lazy(() => import('./pages/GamePage'))
 
 const RouterComponent = window.location.protocol === 'file:' ? HashRouter : BrowserRouter
-const basename = window.location.protocol === 'file:' ? undefined : '/reap'
+const isLocalDev = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+const basename = window.location.protocol === 'file:' ? undefined : (isLocalDev ? undefined : '/reap')
 
 const App = () => (
   <RouterComponent basename={basename}>

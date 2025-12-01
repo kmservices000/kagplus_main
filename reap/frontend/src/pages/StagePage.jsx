@@ -6,6 +6,39 @@ import { useLanguage } from '../context/LanguageContext';
 import { useProgress } from '../context/ProgressContext';
 import { getRandomQuestionsFromBank } from '../data/testBanks';
 
+const colorTagMap = {
+  RED: 'color-red',
+  BLUE: 'color-blue',
+  PURPLE: 'color-purple',
+  GREEN: 'color-green',
+  ORANGE: 'color-orange',
+  UNDERLINE: 'underline',
+};
+
+const applyColorTags = (value = '') => {
+  if (typeof value !== 'string') return value;
+  let output = value;
+  Object.entries(colorTagMap).forEach(([token, cls]) => {
+    const bracketPattern = new RegExp(`\\[${token}\\]([\\s\\S]*?)\\[/${token}\\]`, 'gi');
+    output = output.replace(bracketPattern, (_, inner) => `<span class="${cls}">${inner}</span>`);
+    const legacyPattern = new RegExp(`${token}([\\s\\S]*?)/${token}`, 'gi');
+    output = output.replace(legacyPattern, (_, inner) => `<span class="${cls}">${inner}</span>`);
+    output = output.replace(new RegExp(`\\[/?${token}\\]|${token}|/${token}`, 'g'), '');
+  });
+  return output;
+};
+
+const stripLeadingDashes = (value = '') =>
+  value.replace(/^[\s\u00a0\u200b\uFEFF]*[—–-]\s*/, '');
+
+const boldParentheticals = (value = '') =>
+  value.replace(/\(([^()]+)\)/g, (match, inner) => `<strong>(${inner})</strong>`);
+
+const decorateSpecialMarkers = (text = '') =>
+  boldParentheticals(
+    applyColorTags(stripLeadingDashes(text).replace(/\bBREAK\b/gi, '<span class="break-spacer">   </span>')),
+  );
+
 const gatherReviewIds = (lessonCode, queue) => {
   if (!lessonCode || !Array.isArray(queue)) return [];
   const relevant = queue.filter((item) => item.topicCode === lessonCode);
@@ -72,32 +105,48 @@ const StagePage = () => {
   const renderContentBlock = (label, content) => (
     <div className="lesson-content-block" key={label}>
       <p className="content-language">{label}</p>
-      {content.introHtml ? (
-        <p className="content-intro" dangerouslySetInnerHTML={{ __html: content.introHtml }} />
-      ) : content.intro ? (
-        <p className="content-intro">{content.intro}</p>
+      {content.introHtml || content.intro ? (
+        <p
+          className="content-intro"
+          dangerouslySetInnerHTML={{
+            __html: content.introHtml || decorateSpecialMarkers(content.intro || ''),
+          }}
+        />
       ) : null}
       {content.definitions?.length ? (
         <ul className="content-definitions">
-          {content.definitions.map((item) => (
-            <li key={`${label}-${item.term}`}>
-              <strong>{item.term}</strong>
-              {item.descriptionHtml ? (
+          {content.definitions.map((item, index) => {
+            if (item.isBreak) {
+              return (
+                <li key={`${label}-break-${index}`} className="definition-break" aria-hidden="true">
+                  <span className="break-spacer">   </span>
+                </li>
+              );
+            }
+            const isExample = /^example\b/i.test(item.term || '');
+            const definitionHtml =
+              item.descriptionHtml || decorateSpecialMarkers(item.description || '');
+            const termHtml = decorateSpecialMarkers(item.term || '');
+            const prefix = termHtml ? ` — ${definitionHtml}` : definitionHtml;
+            return (
+              <li key={`${label}-${item.term}`} className={isExample ? 'definition-example' : ''}>
+                <strong dangerouslySetInnerHTML={{ __html: termHtml }} />
                 <span
                   className="definition-text"
-                  dangerouslySetInnerHTML={{ __html: ` — ${item.descriptionHtml}` }}
+                  dangerouslySetInnerHTML={{ __html: prefix }}
                 />
-              ) : (
-                <span> — {item.description}</span>
-              )}
-            </li>
-          ))}
+              </li>
+            );
+          })}
         </ul>
       ) : null}
       {content.closingHtml ? (
-        <p className="content-closing" dangerouslySetInnerHTML={{ __html: content.closingHtml }} />
+        <p
+          className="content-closing"
+          dangerouslySetInnerHTML={{ __html: decorateSpecialMarkers(content.closingHtml) }}
+        />
       ) : content.closing ? (
-        <p className="content-closing">{content.closing}</p>
+        <p className="content-closing">{decorateSpecialMarkers(content.closing)}</p>
       ) : null}
     </div>
   );
@@ -145,7 +194,7 @@ const StagePage = () => {
     (count, question) => (quizResponses[question.id] === question.answer ? count + 1 : count),
     0,
   );
-  const passingScore = totalQuizQuestions ? Math.ceil(totalQuizQuestions * 0.8) : 0;
+  const passingScore = totalQuizQuestions ? Math.max(Math.ceil(totalQuizQuestions * 0.8), 4) : 0;
   const quizCompleted = totalQuizQuestions > 0 && answeredCount === totalQuizQuestions;
   const quizPassed = quizCompleted && correctCount >= passingScore;
   const readyToComplete = onFinalStep && (finalStep?.type === 'quiz' ? quizPassed : true);
@@ -300,7 +349,12 @@ const StagePage = () => {
       });
     }
     if (step.type === 'ready') {
-      return <p className="ready-message">{step.message}</p>;
+      const readyMessageHtml = step.messageHtml || (step.message ? decorateSpecialMarkers(step.message) : null);
+      return readyMessageHtml ? (
+        <p className="ready-message" dangerouslySetInnerHTML={{ __html: readyMessageHtml }} />
+      ) : (
+        <p className="ready-message">{step.message}</p>
+      );
     }
     if (step.type === 'quiz') {
       return (

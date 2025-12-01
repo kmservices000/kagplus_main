@@ -3,6 +3,8 @@ import lesson021Source from '@lessons/l_module_0.2.1.json';
 import lesson022Source from '@lessons/l_module_0.2.2.json';
 import lesson023Source from '@lessons/l_module_0.2.3.json';
 import lesson024Source from '@lessons/l_module_0.2.4.json';
+import lesson025Source from '@lessons/l_module_0.2.5.json';
+import lesson026Source from '@lessons/l_module_0.2.6.json';
 
 const findLessonJsonById = (collection, moduleId) => {
   if (!Array.isArray(collection)) return null;
@@ -13,10 +15,18 @@ const splitDefinitionLines = (lines = []) =>
   lines
     .map((line) => {
       const trimmed = (line || '').trim();
+      if (trimmed.toUpperCase() === 'BREAK') {
+        return { term: '', description: '', descriptionHtml: '<span class="break-spacer">   </span>', isBreak: true };
+      }
       const match = trimmed.match(/^(.*?)\s*[–—-]\s*([\s\S]+)$/);
       if (!match) return null;
       const [, term, description] = match;
-      return { term: term.trim(), description: description.trim() };
+      const cleanDescription = description.trim();
+      return {
+        term: term.trim(),
+        description: cleanDescription,
+        descriptionHtml: cleanDescription,
+      };
     })
     .filter(Boolean);
 
@@ -46,6 +56,49 @@ const highlightSubject = (text = '') => `<span class="inv-subject">${text}</span
 
 const normalizeEnglishLine = (line = '') =>
   line.replace(/^\s*EN:\s*[•●▪‣·*‒–—-]?\s*/i, 'EN: ').trimStart();
+
+const colorTagMap = {
+  RED: 'color-red',
+  BLUE: 'color-blue',
+  PURPLE: 'color-purple',
+  GREEN: 'color-green',
+  ORANGE: 'color-orange',
+  UNDERLINE: 'underline',
+};
+
+const applyColorTags = (value = '') => {
+  if (typeof value !== 'string') return value;
+  let output = value;
+  Object.entries(colorTagMap).forEach(([token, cls]) => {
+    const bracketPattern = new RegExp(`\\[${token}\\]([\\s\\S]*?)\\[/${token}\\]`, 'gi');
+    output = output.replace(bracketPattern, (_, inner) => `<span class="${cls}">${inner}</span>`);
+    const legacyPattern = new RegExp(`${token}([\\s\\S]*?)/${token}`, 'gi');
+    output = output.replace(legacyPattern, (_, inner) => `<span class="${cls}">${inner}</span>`);
+    output = output.replace(new RegExp(`\\[/?${token}\\]|${token}|/${token}`, 'g'), '');
+  });
+  return output;
+};
+
+const stripLeadingDashes = (value = '') =>
+  value.replace(/^[\s\u00a0\u200b\uFEFF]*[—–-]\s*/, '');
+
+const boldParentheticals = (value = '') =>
+  value.replace(/\(([^()]+)\)/g, (match, inner) => `<strong>(${inner})</strong>`);
+
+const breakSpacerHtml = '<span class="break-spacer">   </span>';
+const formatLessonText = (value = '') =>
+  typeof value === 'string'
+    ? boldParentheticals(applyColorTags(stripLeadingDashes(value).replace(/\bBREAK\b/gi, breakSpacerHtml)))
+    : value;
+
+const wrapConnector = (value = '') => `<span class="mc-chip mc-conj">${value}</span>`;
+const highlightCompoundConnectors = (text = '') =>
+  text
+    .replace(/\b(neither)\b/gi, (match) => wrapConnector(match))
+    .replace(/\b(nor)\b/gi, (match) => wrapConnector(match))
+    .replace(/\b(either)\b/gi, (match) => wrapConnector(match))
+    .replace(/\b(or)\b/gi, (match) => wrapConnector(match))
+    .replace(/\b(and)\b/gi, (match) => wrapConnector(match));
 
 const findEnglishParagraph = (lessonJson, startsWithValue) => {
   const normalizedPrefix = normalizeEnglishLine(startsWithValue);
@@ -79,24 +132,33 @@ const buildEnglishMeaningConnectorsContent = (lessonJson) => {
     lines.find((line) => line.toLowerCase().includes('helper words')) || lines[0] || '';
   const legendLine = lines.find((line) => line.toLowerCase().includes('color legend')) || '';
   const intro = [introLine, legendLine].filter(Boolean).join(' ');
-  const introHtml = colorizeMeaningConnectors(intro).replace('COLOR LEGEND:', 'COLOR LEGEND:<br />');
-  const definitions = splitDefinitionLines(lines).map((entry) => ({
-    ...entry,
-    descriptionHtml: colorizeMeaningConnectors(entry.description),
-  }));
+  const introHtml = formatLessonText(
+    colorizeMeaningConnectors(intro).replace('COLOR LEGEND:', 'COLOR LEGEND:<br />'),
+  );
+  const definitions = splitDefinitionLines(lines).map((entry) => {
+    if (entry.isBreak) return entry;
+    return {
+      ...entry,
+      descriptionHtml: formatLessonText(colorizeMeaningConnectors(entry.description)),
+    };
+  });
   const closing = lines.find((line) => line.toLowerCase().includes('very simple')) || '';
-  return { intro, introHtml, definitions, closing };
+  const closingHtml = formatLessonText(closing);
+  return { intro: formatLessonText(intro), introHtml, definitions, closing: closingHtml, closingHtml };
 };
 
 const buildLocalizedMeaningConnectorsContent = (lessonJson, marker) => {
   const lines = sliceSectionLines(lessonJson, marker);
   if (!lines.length) return null;
-  const intro = lines[0] || '';
-  const definitions = splitDefinitionLines(lines.slice(1)).map((entry) => ({
-    ...entry,
-    descriptionHtml: colorizeMeaningConnectors(entry.description),
-  }));
-  return { intro, definitions };
+  const intro = formatLessonText(lines[0] || '');
+  const definitions = splitDefinitionLines(lines.slice(1)).map((entry) => {
+    if (entry.isBreak) return entry;
+    return {
+      ...entry,
+      descriptionHtml: formatLessonText(colorizeMeaningConnectors(entry.description)),
+    };
+  });
+  return { intro, introHtml: intro, definitions };
 };
 
 const parseExampleBlock = (block, id, label) => {
@@ -115,12 +177,12 @@ const parseExampleBlock = (block, id, label) => {
   lines.forEach((line) => {
     const [rawLang, ...rest] = line.split(':');
     const lang = (rawLang || '').trim().toUpperCase();
-    const text = rest.join(':').trim();
+    const text = formatLessonText(rest.join(':').trim());
     if (lang === 'EN') {
       sentence = text;
     } else if (langMap[lang]) {
       translations[langMap[lang]] = text;
-      const htmlText = markdownBoldToHtml(colorizeMeaningConnectors(text));
+      const htmlText = formatLessonText(markdownBoldToHtml(colorizeMeaningConnectors(text)));
       translationsHtml[langMap[lang]] = htmlText;
     }
   });
@@ -128,7 +190,7 @@ const parseExampleBlock = (block, id, label) => {
     id,
     label,
     sentence,
-    sentenceHtml: colorizeMeaningConnectors(sentence),
+    sentenceHtml: formatLessonText(colorizeMeaningConnectors(sentence)),
     translations,
     translationsHtml,
   };
@@ -176,32 +238,118 @@ const meaningConnectorsExamples = [meaningExample1, meaningExample2].filter(Bool
 const buildGenericContent = (lessonJson, marker, descriptionTransform) => {
   const lines = sliceSectionLines(lessonJson, marker);
   if (!lines.length) return null;
-  const intro = lines[0] || '';
-  const definitions = splitDefinitionLines(lines.slice(1)).map((entry) => ({
-    ...entry,
-    descriptionHtml: descriptionTransform
-      ? descriptionTransform(entry.description)
-      : entry.descriptionHtml,
-  }));
-  return { intro, definitions };
+  const intro = formatLessonText(lines[0] || '');
+  const definitions = splitDefinitionLines(lines.slice(1)).map((entry) => {
+    if (entry.isBreak) return entry;
+    const baseDescription = formatLessonText(entry.description);
+    return {
+      ...entry,
+      descriptionHtml: descriptionTransform
+        ? formatLessonText(descriptionTransform(baseDescription))
+        : formatLessonText(entry.descriptionHtml || baseDescription),
+    };
+  });
+  return { intro, introHtml: intro, definitions };
 };
 
 const buildBulletOnlyContent = (lessonJson, marker, descriptionTransform) => {
   const lines = sliceSectionLines(lessonJson, marker);
   if (!lines.length) return null;
-  const definitions = splitDefinitionLines(lines).map((entry) => ({
-    ...entry,
-    descriptionHtml: descriptionTransform
-      ? descriptionTransform(entry.description)
-      : entry.descriptionHtml,
-  }));
+  const definitions = splitDefinitionLines(lines).map((entry) => {
+    if (entry.isBreak) return entry;
+    const baseDescription = formatLessonText(entry.description);
+    return {
+      ...entry,
+      descriptionHtml: descriptionTransform
+        ? formatLessonText(descriptionTransform(baseDescription))
+        : formatLessonText(entry.descriptionHtml || baseDescription),
+    };
+  });
   return { intro: '', definitions };
 };
+
+const buildFreeformContent = (lessonJson, marker) => {
+  const lines = sliceSectionLines(lessonJson, marker);
+  if (!lines.length) return null;
+  const cleanLine = (line = '') =>
+    formatLessonText(line.replace(/^[\s\u00a0\u200b\uFEFF]*[—–-]\s*/, '').trim());
+  const [first, ...rest] = lines;
+  const intro = cleanLine(first || '');
+  const definitions = rest
+    .map((line, index) => {
+      const cleaned = cleanLine(line);
+      if (!cleaned) return null;
+      return {
+        term: '',
+        description: line,
+        descriptionHtml: cleaned,
+        key: `${marker}-free-${index}`,
+      };
+    })
+    .filter(Boolean);
+  return { intro, introHtml: intro, definitions };
+};
+
+const buildExampleLines = (lessonJson, marker = 'ENGLISH') =>
+  sliceSectionLines(lessonJson, marker).filter((line) =>
+    (line || '').trim().toLowerCase().startsWith('example'),
+  );
+
+const extractExamplesAfterHeader = (lessonJson, headerMarker, idPrefix, labelPrefix) => {
+  const paragraphs = lessonJson?.paragraphs || [];
+  const markerLc = (headerMarker || '').trim().toLowerCase();
+  const headerIndex = paragraphs.findIndex((line) =>
+    (line || '').trim().toLowerCase().includes(markerLc),
+  );
+  if (headerIndex === -1) return [];
+  const results = [];
+  const isSectionHeader = (line = '') => /^[⭐🟧🟩🌏]/.test((line || '').trim());
+  for (let i = headerIndex + 1; i < paragraphs.length; i += 1) {
+    const line = (paragraphs[i] || '').trim();
+    if (isSectionHeader(line)) break;
+    if (line.toLowerCase().startsWith('example')) {
+      const sentence = line.replace(/^example\s*[–—-]\s*/i, '').trim();
+      const labelBase =
+        labelPrefix ||
+        headerMarker.replace(/^[⭐🟩]\s*/, '').replace(/\s+/g, ' ').trim() ||
+        'Example';
+      results.push({
+        id: `${idPrefix}-${results.length + 1}`,
+        label: `${labelBase} — Example ${results.length + 1}`,
+        sentence,
+        sentenceHtml: formatLessonText(sentence),
+      });
+    }
+  }
+  return results;
+};
+
+const buildCompoundSubjectExamples = (lessonJson) =>
+  buildExampleLines(lessonJson).map((line, index) => {
+    const sentence = line.replace(/^Example\s*[–—-]\s*/i, '').trim();
+    const normalized = sentence.toLowerCase();
+    let label = `Example ${index + 1}`;
+    if (normalized.includes('neither') || normalized.includes('nor')) {
+      label = `Example ${index + 1} — Neither/Nor`;
+    } else if (normalized.includes('either')) {
+      label = `Example ${index + 1} — Either/Or`;
+    } else if (normalized.includes(' and ')) {
+      label = `Example ${index + 1} — And = plural`;
+    }
+    return {
+      id: `0.2.5-ex${index + 1}`,
+      label,
+      sentence,
+      sentenceHtml: formatLessonText(sentence),
+    };
+  });
 
 const simplePresentLessonJson = findLessonJsonById(lesson021Source, '0.2.1');
 const svaSingularPluralLessonJson = findLessonJsonById(lesson022Source, '0.2.2');
 const svaSpecialSubjectsLessonJson = findLessonJsonById(lesson023Source, '0.2.3');
 const invertedSentencesLessonJson = findLessonJsonById(lesson024Source, '0.2.4');
+const compoundSubjectsLessonJson = findLessonJsonById(lesson025Source, '0.2.5');
+const distanceSubjectVerbLessonJson = findLessonJsonById(lesson026Source, '0.2.6');
 
 const simplePresentContent = {
   english: buildGenericContent(simplePresentLessonJson, 'ENGLISH', highlightPresentVerb),
@@ -302,6 +450,15 @@ const invertedSentencesContent = {
   kapampangan: buildGenericContent(invertedSentencesLessonJson, '⭐ KAPAMPANGAN'),
 };
 
+const compoundSubjectsContent = {
+  english: buildGenericContent(compoundSubjectsLessonJson, 'ENGLISH', formatLessonText),
+  cebuano: buildGenericContent(compoundSubjectsLessonJson, '⭐ CEBUANO', formatLessonText),
+  hiligaynon: buildGenericContent(compoundSubjectsLessonJson, '⭐ HILIGAYNON', formatLessonText),
+  ilokano: buildGenericContent(compoundSubjectsLessonJson, '⭐ ILOKANO', formatLessonText),
+  tagalog: buildGenericContent(compoundSubjectsLessonJson, '⭐ TAGALOG', formatLessonText),
+  kapampangan: buildGenericContent(compoundSubjectsLessonJson, '⭐ KAPAMPANGAN', formatLessonText),
+};
+
 const invertedSentencesReadyMessage =
   invertedSentencesLessonJson?.paragraphs?.find((line) =>
     (line || '').startsWith('Ready?'),
@@ -395,6 +552,64 @@ const invertedPatternExamples = [
     ].join('<br /><br />'),
   },
 ];
+
+const compoundSubjectsExamples = buildCompoundSubjectExamples(compoundSubjectsLessonJson).filter(
+  Boolean,
+);
+
+const compoundSubjectsReadyMessage =
+  compoundSubjectsLessonJson?.paragraphs?.find((line) => (line || '').startsWith('Ready?')) ||
+  'Ready? Let’s practice! Choose the correct verb for each compound subject.';
+const compoundSubjectsReadyMessageHtml = formatLessonText(compoundSubjectsReadyMessage);
+
+const distanceContent = {
+  english: buildFreeformContent(distanceSubjectVerbLessonJson, 'ENGLISH'),
+  hiligaynon: buildFreeformContent(distanceSubjectVerbLessonJson, '⭐ HILIGAYNON'),
+  cebuano: buildFreeformContent(distanceSubjectVerbLessonJson, '⭐ CEBUANO'),
+  tagalog: buildFreeformContent(distanceSubjectVerbLessonJson, '⭐ TAGALOG'),
+  kapampangan: buildFreeformContent(distanceSubjectVerbLessonJson, '⭐ KAPAMPANGAN'),
+  ilokano: buildFreeformContent(distanceSubjectVerbLessonJson, '⭐ ILOKANO'),
+};
+
+const distanceExampleGroups = [
+  extractExamplesAfterHeader(
+    distanceSubjectVerbLessonJson,
+    'prepositional phrase interrupters',
+    '0.2.6-prep',
+    'Prepositional Phrase Interrupters',
+  ),
+  extractExamplesAfterHeader(
+    distanceSubjectVerbLessonJson,
+    'appositive interrupters',
+    '0.2.6-app',
+    'Appositive Interrupters',
+  ),
+  extractExamplesAfterHeader(
+    distanceSubjectVerbLessonJson,
+    'other interrupting phrases',
+    '0.2.6-other',
+    'Other Interrupting Phrases',
+  ),
+  extractExamplesAfterHeader(
+    distanceSubjectVerbLessonJson,
+    'mixed examples (prepositional phrase + appositive)',
+    '0.2.6-mixed',
+    'Mixed Examples',
+  ),
+].flat();
+
+const distanceExamples = distanceExampleGroups.length
+  ? distanceExampleGroups
+  : buildExampleLines(distanceSubjectVerbLessonJson).map((line, index) => ({
+      id: `0.2.6-ex${index + 1}`,
+      label: `Example ${index + 1}`,
+      sentenceHtml: formatLessonText(line.replace(/^example\s*[–—-]\s*/i, '')),
+    }));
+
+const distanceReadyMessage =
+  distanceSubjectVerbLessonJson?.paragraphs?.find((line) => (line || '').startsWith('Ready?')) ||
+  'Ready? Let’s practice! Choose the correct verb by ignoring the interrupting phrase.';
+const distanceReadyMessageHtml = formatLessonText(distanceReadyMessage);
 
 export const subjectProgress = [
   { subject: 'English', percent: 67, color: '#ff7d18' },
@@ -818,7 +1033,30 @@ export const modules = [
           'With “or/nor,” match the verb to the nearest subject.',
         ],
         why: 'Compound subjects appear often in reading and tests.',
+        content: compoundSubjectsContent,
+        flow: [
+          {
+            type: 'examples',
+            title: 'Step 2 — Example Sentences',
+            examples: compoundSubjectsExamples,
+          },
+      {
+        type: 'ready',
+        title: 'Step 3 — “Ready?” Screen',
+        message: compoundSubjectsReadyMessage,
+        messageHtml: compoundSubjectsReadyMessageHtml,
       },
+      {
+        type: 'quiz',
+        title: 'Step 4 — Test Items',
+        note: 'English-only • choose the correct verb for compound subjects (and / or / neither…nor / either…or)',
+        questionBank: {
+          moduleId: '0.2.5',
+          count: 5,
+        },
+      },
+    ],
+  },
       {
         code: '0.2.6',
         stage: '0.2 — Simple Present Tense and Subject–Verb Agreement (SVA)',
@@ -829,6 +1067,29 @@ export const modules = [
           'Re-read without the interrupter to choose the verb.',
         ],
         why: 'Longer sentences can mislead learners about number.',
+        content: distanceContent,
+        flow: [
+          {
+            type: 'examples',
+            title: 'Step 2 — Interrupting Phrase Practice',
+            examples: distanceExamples,
+          },
+          {
+            type: 'ready',
+            title: 'Step 3 — “Ready?” Screen',
+            message: distanceReadyMessage,
+            messageHtml: distanceReadyMessageHtml,
+          },
+          {
+            type: 'quiz',
+            title: 'Step 4 — Test Items',
+            note: 'English-only • ignore interrupting phrases to match the verb to the true subject',
+            questionBank: {
+              moduleId: '0.2.6',
+              count: 5,
+            },
+          },
+        ],
       },
       {
         code: '0.2.7',
