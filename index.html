@@ -12,6 +12,9 @@
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://kagplus.com" />
 
+    <!-- Preload critical assets -->
+    <link rel="preload" as="image" href="kagplus-logo.webp" type="image/webp">
+
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="favicon.png" />
     <link rel="shortcut icon" type="image/png" href="favicon.png" />
@@ -71,17 +74,19 @@
         filter: blur(60px);
         opacity: 0.5;
         animation: aurora 20s ease-in-out infinite;
+        will-change: transform;
+        contain: layout style;
       }
       .aurora::before {
         background: radial-gradient(circle, rgba(255, 200, 150, 0.6) 0%, rgba(255, 122, 0, 0.3) 25%, transparent 50%);
-        top: -50%;
-        left: -50%;
+        top: -25%;
+        left: -25%;
         animation-delay: 0s;
       }
       .aurora::after {
         background: radial-gradient(circle, rgba(255, 255, 255, 0.4) 0%, rgba(255, 245, 235, 0.3) 25%, transparent 50%);
-        bottom: -50%;
-        right: -50%;
+        bottom: -25%;
+        right: -25%;
         animation-delay: -10s;
       }
       @keyframes aurora {
@@ -89,6 +94,10 @@
         25% { transform: translate(20%, 10%) rotate(90deg); }
         50% { transform: translate(10%, 20%) rotate(180deg); }
         75% { transform: translate(-10%, 10%) rotate(270deg); }
+      }
+      .aurora-paused::before,
+      .aurora-paused::after {
+        animation-play-state: paused;
       }
       a { color: var(--text); text-decoration: none; }
       .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
@@ -169,7 +178,7 @@
     </style>
   </head>
   <body>
-    <div class="aurora"></div>
+    <div class="aurora aurora-paused" id="aurora"></div>
     <nav class="nav">
       <div class="container nav-inner">
         <div class="brand">
@@ -184,6 +193,7 @@
               <a href="https://regressionpal.kagplus.com/">RegressionPal <span class="badge">Live</span></a>
               <a href="https://formatadock.kagplus.com">FormataDock <span class="badge">Live</span></a>
               <a href="https://oratoriq.kagplus.com/">OratorIQ <span class="badge">Live</span></a>
+              <a href="https://store.kagplus.com/">KagPlus Store <span class="badge">Live</span></a>
               <!-- <a href="/reap">REAP <span class="badge">Soon</span></a> -->
               <a href="/curerate">Curerate <span class="badge">Soon</span></a>
               <a href="/syntaxy">Syntaxy <span class="badge">Soon</span></a>
@@ -307,6 +317,18 @@
             <div class="app-desc">OratorIQ is a free English learning website where every lesson comes with embedded flashcards to help you build vocabulary and confidence at your own pace.</div>
             <div class="app-actions"><a class="cta" href="https://oratoriq.kagplus.com/">Launch</a></div>
           </div>
+          <div class="app-card">
+            <div class="app-head">
+              <svg class="app-logo" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect x="6" y="6" width="52" height="52" rx="12" fill="#ff7a00"/>
+                <path d="M16 20 q8-4 16 0 q8-4 16 0 v25 q-8-4-16 0 q-8-4-16 0z" fill="#fff"/>
+                <path d="M32 20 v25 M21 27 h6 M21 33 h6 M37 27 h6 M37 33 h6" stroke="#111" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+              <div class="app-title">KagPlus Store</div>
+            </div>
+            <div class="app-desc">Explore English ebooks, interactive lessons, quizzes, and workbooks for pronunciation, grammar, beginner vocabulary, and workplace communication. Try free starter editions or get the complete resources to download and learn offline at your own pace on Mac and Windows computers.</div>
+            <div class="app-actions"><a class="cta" href="https://store.kagplus.com/">Visit Store</a></div>
+          </div>
           <!-- REAP hidden
           <div class="app-card">
             <div class="app-head">
@@ -379,6 +401,13 @@
     </footer>
 
     <script>
+      // Start aurora animation after first paint to avoid blocking initial render
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          document.getElementById('aurora').classList.remove('aurora-paused');
+        });
+      });
+
       let deferredPrompt;
 
       window.addEventListener('beforeinstallprompt', (e) => {
